@@ -14,9 +14,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import statistics
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+
+from greenkiosk import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("inventory/", include("inventory.urls")),
+    path('customer/', include('customer.urls')),
+    path('payment/', include('payment.urls')),
+    path('vendor/', include('vendor.urls')),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

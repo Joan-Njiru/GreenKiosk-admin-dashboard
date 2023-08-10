@@ -5,10 +5,10 @@ from orders.models import Orders
 
 # Create your models here.
 class Cart(models.Model):
-    order = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    product_order = models.ForeignKey(Orders, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.CharField(max_length=32)
-    products = models.ManyToManyField(Product)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
     number_of_items=models.IntegerField()
     payment=models.DecimalField(max_digits=20,decimal_places=2)
     

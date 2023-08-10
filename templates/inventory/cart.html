@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1>Your Shopping Cart</h1>
+
+    {% if cart_items %}
+        <ul>
+            {% for item in cart_items %}
+                <li>
+                    <h2>{{product.name }}</h2>
+                    <p>Price: ${{product.price }}</p>
+                    <p>Quantity: {{ product.stock }}</p>
+
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+
+    <button><a href="{% url 'products_list_view' %}">Continue Shopping</a></button>
+    
+</body>
+</html>
+
+
+

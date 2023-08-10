@@ -1,0 +1,56 @@
+
+table {
+    width: 100%;
+    /* border-collapse: collapse; */
+    margin-top: 20px;
+    border-spacing: 0;
+  }
+ 
+  thead th {
+    background-color: #e9c9c9;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #ebe5e5;
+  }
+  
+  tbody td {
+    padding: 8px;
+  }
+  
+ 
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+
+#add{
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+
+}
+#productName{
+    font-size: 30px;
+    text-align: center;
+}
+
+.moreDetails{
+  text-align: center;
+}
+#productContent{
+margin-left: 30%;
+}
+
+
+  

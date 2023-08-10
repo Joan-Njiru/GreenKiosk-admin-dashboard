@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer List</title>
+    {% load static %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'customer/styles.css' %}">
+</head>
+<body>
+    <h1>Customer List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+        {% for customer in customers %}
+        <tr>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.phone_number }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
