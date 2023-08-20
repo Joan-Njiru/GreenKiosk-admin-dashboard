@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Receipt</title>
+    {% load static %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'payment/styles2.css' %}">
 </head>
 <body>
-    <h1>Receipt</h1>
-    <p><strong>Receipt Number:</strong> {{ payment.receipt }}</p>
-    <p><strong>Payment Status:</strong> {{ payment.payment_status }}</p>
-    <p><strong>Payment Amount:</strong> {{ payment.amount }}</p>
-    <p><strong>Payment Date & Time:</strong> {{ payment.payment_date_time }}</p>
-    <p><strong>Payment Method:</strong> {{ payment.payment_method }}</p>
-    <!-- Add more fields from the Payment model as needed -->
-
-    <!-- You can also add additional HTML formatting and styles here -->
+    <div class="receipt-container">
+        <h1>Payment Successful!</h1>
+        <p>Thank you for your payment.</p>
+        <h2>Receipt</h2>
+        <p><strong>Receipt Number:</strong> {{ payment.receipt }}</p>
+        <p><strong>Payment Status:</strong> {{ payment.payment_status }}</p>
+        <p><strong>Payment Amount:</strong> {{ payment.amount }}</p>
+        <p><strong>Payment Date & Time:</strong> {{ payment.payment_date_time }}</p>
+        <p><strong>Payment Method:</strong> {{ payment.payment_method }}</p>
+    </div>
 </body>
 </html>

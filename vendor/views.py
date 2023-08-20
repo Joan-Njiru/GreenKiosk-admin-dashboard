@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from .forms import VendorUploadForm
-from inventory.models import Vendor
+from vendor.models import Vendor
 from django.shortcuts import redirect
 # Create your views here.
 def upload_vendor(request):                      
     if request.method == 'POST':
-        uploaded_vendor = request.FILES["image"]
         form = VendorUploadForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()

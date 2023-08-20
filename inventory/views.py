@@ -5,13 +5,17 @@ from django.shortcuts import redirect
 
 
 def upload_product(request):
-    if request.method == "POST":
+    if request.method == 'POST':
+        upload_product = request.FILES["image"]
         form = ProductUploadForm(request.POST, request.FILES)  # Use request.FILES
         if form.is_valid():
             form.save()
+            # return redirect('products_list_view')
+
     else:
         form = ProductUploadForm()
-    return render(request, "inventory/product_upload.html", {"form": form})
+
+    return render(request, "inventory/product_upload.html", {'form': form})
 
 
 def product_list(request):

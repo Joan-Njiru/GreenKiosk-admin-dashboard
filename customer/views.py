@@ -10,7 +10,7 @@ def add_customer(request):
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('customer_list')  # Redirect to a view that shows the list of customers
+            return redirect('customer_list')
     else:
         form = CustomerForm()
     return render(request, "customer/customer_form.html", {"form": form})

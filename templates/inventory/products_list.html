@@ -8,27 +8,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 </head>
 <body>
-    <table>
-        <thead> 
-            <tr> 
-                <th>Title</th> 
-                <th>Description</th>
-                <th>Price</th>
-                <th>Product Details</th>
-                <th>Edit product</th>
-            </tr>
-        </thead>
-        <tbody> 
-            {% for product in products %}
-            <tr>
-                <td>{{ product.name }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.price }}</td>
-                <td><a href="{% url 'product_detail_view' id=product.id %}">View product</a></td>
-                <td><a href="{% url 'product_edit_view' id=product.id %}">Edit</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="product-container">
+        {% for product in products %}
+        <div class="product">
+            <img src="{{ product.image.url }}" alt="Product images">
+            <div class="product-details">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Price: {{ product.price }}</p>
+                <a href="{% url 'product_detail_view' id=product.id %}">View product</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

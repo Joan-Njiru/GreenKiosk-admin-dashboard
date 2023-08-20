@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    {% load static %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'cart/styles.css' %}">
+</head>
+<body>
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Payment</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for cart_item in cart_items %}
+              <tr>
+                <td>{{ cart_item.product }}</td>
+                <td>{{ cart_item.category }}</td>
+                <td>{{ cart_item.number_of_items }}</td>
+                <td>{{ cart_item.payment }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">Total Payment:</td>
+              <td>{{ total_payment }}</td>
+            </tr>
+          </tfoot>
+        </table>
+    </div>
+</body>
+</html>
