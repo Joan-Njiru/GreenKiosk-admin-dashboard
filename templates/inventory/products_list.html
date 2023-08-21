@@ -4,10 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>products_list_view</title>
+    <style>
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .search-container form {
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 0;
+            width: 200px;
+        }
+
+        .search-container button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-container button:hover {
+            background-color: #258cd1;
+        }
+    </style>
     {% load static %} 
     <link rel="stylesheet" type="text/css" href="{% static 'inventory/styles.css' %}">
 </head>
 <body>
+    <h1 style="margin-left: 20%; margin-bottom: -50px; color: rgb(16, 86, 16);"> Green Kiosk</h1>
+    <div class="search-container">
+            <input type="text" name="search" placeholder="Search products">
+            <button type="submit">Search</button>
+        
+    </div>
     <div class="product-container">
         {% for product in products %}
         <div class="product">
@@ -17,6 +57,9 @@
                 <p>{{ product.description }}</p>
                 <p>Price: {{ product.price }}</p>
                 <a href="{% url 'product_detail_view' id=product.id %}">View product</a>
+                <a href="{% url 'cart' %}">
+                    <button id="add">Add to cart</button>
+                    </a>
             </div>
         </div>
         {% endfor %}

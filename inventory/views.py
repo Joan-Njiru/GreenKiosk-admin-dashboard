@@ -44,5 +44,6 @@ def edit_product_view(request, id):
 
     return render(request, "inventory/edit_product.html", {"form": form})
 
+
     
 
